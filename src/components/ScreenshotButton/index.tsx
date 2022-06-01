@@ -39,7 +39,6 @@ export function ScreenshotButton({onRemoveShot, onTakeShot, screenshot}:Screensh
                   size={24}
                   color={theme.colors.text_secondary}
                   weight="bold"
-                  style={styles.removeIcon}
               />
         }
     </TouchableOpacity>

@@ -40,10 +40,10 @@ function Widget() {
         handleIndicatorStyle={styles.indicator}
       >
         {/* <Options/> */}
-        {/* <Form
+        <Form
           feedbackType='IDEA'
-        /> */}
-        <SuccessStep/>
+        />
+        {/* <SuccessStep/> */}
       </BottomSheet>
     </>
     

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     TextInput,
@@ -6,6 +6,8 @@ import {
     Text,
     TouchableOpacity
 } from 'react-native';
+import { captureScreen } from 'react-native-view-shot'
+
 import { ArrowLeft } from 'phosphor-react-native';
 
 import { FeedbackTypes } from '../Widget';
@@ -18,12 +20,29 @@ import { styles } from './styles';
 import { theme } from '../../theme';
 
 interface FormProsp{
-    feedbackType: FeedbackTypes
+  feedbackType: FeedbackTypes
+  
 }
 
 export function Form({ feedbackType }: FormProsp) {
+  const [screenshot, setScreenshot] = useState<string | null>(null)
+  
+  const feedbackTypesInfo = feedbackTypes[feedbackType];
+
+  function handleScreenshot() {
     
-    const feedbackTypesInfo = feedbackTypes[feedbackType];
+    captureScreen({
+      format: 'jpg',
+      quality: 0.8
+    })
+      .then(uri =>  setScreenshot(uri))
+      .catch(error => console.log(error))
+  
+  }
+
+  function handleScreenshotNull() {
+    setScreenshot(null)
+  }
 
   return (
     <View style={styles.container}>
@@ -59,9 +78,9 @@ export function Form({ feedbackType }: FormProsp) {
         <View style={styles.footer}>
         
         <ScreenshotButton
-          onRemoveShot={()=>{}}
-          onTakeShot={ ()=>{}}
-          screenshot="https://avatars.githubusercontent.com/u/53803076?v=4"
+          onRemoveShot={handleScreenshotNull}
+          onTakeShot={ handleScreenshot }
+          screenshot={screenshot}
         />
         <SubmitButton isLoading={false}/>
       </View> 
