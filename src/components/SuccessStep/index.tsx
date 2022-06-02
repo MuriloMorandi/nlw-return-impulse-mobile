@@ -10,7 +10,11 @@ import successImg from '../../assets/success.png'
 
 import { styles } from './styles';
 
-export function SuccessStep() {
+interface SuccessStepProps{
+  onFeedbackRestart: () => void
+}
+
+export function SuccessStep({onFeedbackRestart}:SuccessStepProps) {
   return (
     <View style={styles.container}>
       <Image
@@ -24,6 +28,7 @@ export function SuccessStep() {
 
       <TouchableOpacity
         style={styles.button}
+        onPress={onFeedbackRestart}
       >
         <Text
           style={styles.buttonTitle}
