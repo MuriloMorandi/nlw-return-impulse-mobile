@@ -7,11 +7,11 @@
 
 ## 🚀 Projeto
 
-Um Component Widget para feedback que pode ser utilizado em qualquer site.
+Um Component Widget para feedback que pode ser utilizado em qualquer aplicativo.
 
 ## 🔧 Tecnologias
 
-- Vite
+- Expo
 - React-Native
 - ReactJS
 - Axios
